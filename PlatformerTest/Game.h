@@ -4,6 +4,7 @@
 #include "SDLWindow.h"
 
 #include <SDL.h>
+#include <vector>
 
 class Game
 {

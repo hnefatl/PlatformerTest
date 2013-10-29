@@ -23,8 +23,16 @@ bool Game::Update()
 			return false;
 		}
 	}
+
+
+
+	return true;
 }
 void Game::Draw()
 {
+	Window.BeginScene();
 
+
+
+	Window.EndScene();
 }
