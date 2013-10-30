@@ -10,6 +10,7 @@ SDLWindow::SDLWindow()
 }
 SDLWindow::~SDLWindow()
 {
+	SDL_DestroyRenderer(Renderer);
 	SDL_DestroyWindow(Window);
 	IMG_Quit();
 	TTF_Quit();
@@ -62,6 +63,16 @@ void SDLWindow::SetBackgroundColour(const SDL_Colour &Background)
 {
 	this->Background=Background;
 	SDL_SetRenderDrawColor(Renderer, Background.r, Background.g, Background.b, Background.a);
+}
+
+SDL_Renderer *const SDLWindow::GetRenderer()
+{
+	return Renderer;
+}
+
+SDL_Window *const SDLWindow::GetWindow()
+{
+	return Window;
 }
 
 unsigned int SDLWindow::GetWidth() const

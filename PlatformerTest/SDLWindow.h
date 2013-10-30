@@ -1,6 +1,8 @@
 #ifndef _SDLWINDOW_H
 #define _SDLWINDOW_H
 
+#include "Util.h"
+
 #include <string>
 
 #include <SDL.h>
@@ -20,6 +22,10 @@ public:
 	void EndScene();
 
 	void SetBackgroundColour(const SDL_Colour &Background);
+
+	SDL_Renderer *const GetRenderer();
+
+	SDL_Window *const GetWindow();
 
 	unsigned int GetWidth() const;
 	unsigned int GetHeight() const;

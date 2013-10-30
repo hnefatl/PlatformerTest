@@ -2,6 +2,7 @@
 #define _GAME_H
 
 #include "SDLWindow.h"
+#include "Player.h"
 
 #include <SDL.h>
 #include <vector>
@@ -10,6 +11,9 @@ class Game
 {
 public:
 	Game();
+	~Game();
+
+	bool Initialise();
 
 	void Run();
 
@@ -18,6 +22,8 @@ protected:
 	void Draw();
 
 	SDLWindow Window;
+
+	std::vector<GameEntity *> Entities;
 };
 
 #endif

@@ -1,6 +1,8 @@
 #ifndef _TEXTURE_H
 #define _TEXTURE_H
 
+#include "Util.h"
+
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>

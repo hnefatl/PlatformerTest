@@ -2,21 +2,20 @@
 #define _PLAYER_H
 
 #include "GameEntity.h"
+#include "AnimatedEntity.h"
 
 class Player
-	: public GameEntity
+	: public AnimatedEntity
 {
 public:
 	Player();
 
-	virtual bool Initialise(SDLWindow &Window);
+	virtual bool Initialise(SDL_Renderer *const Renderer);
 
 	virtual void Update(const SDL_Event &Event);
-	virtual void Draw(SDLWindow &Window);
+	virtual void Draw(SDL_Renderer *const Renderer);
 
 protected:
-	SDL_Texture *Image;
-	SDL_Rect Position;
 };
 
 #endif

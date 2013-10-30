@@ -45,6 +45,7 @@ bool Texture::Load(const std::string &Path, SDL_Renderer *const Renderer)
 		Image=New;
 	}
 
+	Print("Loaded image from \""+Path+"\".");
 	return Image!=NULL;
 }
 bool Texture::Load(const std::string &Text, const std::string &FontFile, const unsigned int &Size, const SDL_Color &TextColour, SDL_Renderer *const Renderer)
@@ -117,17 +118,11 @@ void Texture::Render(SDL_Renderer *const Renderer, const int &x, const int &y, S
 void Texture::Render(SDL_Renderer *const Renderer, const int &x, const int &y, SDL_Rect *const Clip, const double &Angle, SDL_Point *const Centre, const SDL_RendererFlip &Flip)
 {
 	SDL_Rect RenderQuad;
-	if(Clip==NULL)
-	{
-		RenderQuad.x=x;
-		RenderQuad.y=y;
-		RenderQuad.w=Width;
-		RenderQuad.h=Height;
-	}
-	else
-	{
-		RenderQuad=*Clip;
-	}
+	RenderQuad.x=x;
+	RenderQuad.y=y;
+	RenderQuad.w=Width;
+	RenderQuad.h=Height;
+
 	SDL_RenderCopyEx(Renderer, Image, Clip, &RenderQuad, Angle, Centre, Flip);
 }
 
@@ -155,6 +150,7 @@ void Texture::Free()
 	{
 		SDL_DestroyTexture(Image);
 		Image=NULL;
+		Print("Freed texture.");
 	}
 	Width=0;
 	Height=0;
